@@ -29,6 +29,8 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## About FeedPulse
+
 FeedPulse is a lightweight internal tool that lets teams collect product feedback and feature requests from users,
 then uses Google Gemini AI to automatically categorise, prioritise, and summarise them — giving product teams
 instant clarity on what to build next.
