@@ -1,0 +1,62 @@
+﻿[dotenv@17.3.1] injecting env (7) from .env -- tip: ΓÜÖ∩╕Å  specify custom .env file path with { path: '/custom/path/.env' }
+node : E:\Projects\FeedPuls
+e\backend\node_modules\@goo
+gle\genai\dist\node\index.c
+js:21053
+At line:1 char:1
++ node server.js > 
+backend_error.log 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~
+    + CategoryInfo         
+     : NotSpecified: (E:\  
+  Projects\Fee...index.c   
+ js:21053:String) [], R    
+emoteException
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+        if 
+((options.project || 
+options.location) && 
+options.apiKey) {
+                     ^
+
+TypeError: Cannot read 
+properties of undefined 
+(reading 'project')
+    at new GoogleGenAI (E:\
+Projects\FeedPulse\backend\
+node_modules\@google\genai\
+dist\node\index.cjs:21053:2
+2)
+    at Object.<anonymous> (
+E:\Projects\FeedPulse\backe
+nd\src\services\gemini.serv
+ice.js:5:12)
+    at Module._compile (nod
+e:internal/modules/cjs/load
+er:1546:14)
+    at Object..js (node:int
+ernal/modules/cjs/loader:16
+89:10)
+    at Module.load (node:in
+ternal/modules/cjs/loader:1
+318:32)
+    at Function._load (node
+:internal/modules/cjs/loade
+r:1128:12)
+    at 
+TracingChannel.traceSync (n
+ode:diagnostics_channel:315
+:14)
+    at wrapModuleLoad (node
+:internal/modules/cjs/loade
+r:218:24)
+    at Module.require (node
+:internal/modules/cjs/loade
+r:1340:12)
+    at require (node:intern
+al/modules/helpers:141:16)
+
+Node.js v22.11.0
