@@ -60,6 +60,4 @@ instant clarity on what to build next.
 <img width="1884" height="942" alt="Screenshot 2026-03-31 165038" src="https://github.com/user-attachments/assets/571bdbee-cb4e-4a22-af7e-00c1e1b4b5f0" />
 
 
-## Developed By:
-
-- **Mohamed Shazni**
+#### Developed By:  **Mohamed Shazni**
