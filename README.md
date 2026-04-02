@@ -1,4 +1,4 @@
-## FeedPulse — AI-Powered Product Feedback Platform
+# FeedPulse — AI-Powered Product Feedback Platform
 
 ## Getting Started
 
