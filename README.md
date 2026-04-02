@@ -45,7 +45,7 @@ instant clarity on what to build next.
 | **JWT**                |                                   |
 
 
-## Frontend UI 
+## UI Screenshots
 
 - **Dashboard Page**
 <img width="1919" height="943" alt="Screenshot 2026-03-31 165125" src="https://github.com/user-attachments/assets/f42d33f6-b4b5-4b6f-b310-6dd35c8fc017" />
