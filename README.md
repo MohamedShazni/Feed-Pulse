@@ -1,32 +1,63 @@
 # FeedPulse — AI-Powered Product Feedback Platform
 
-## Getting Started
+## ⚙️ Setting Up Locally
 
-First, run the development server:
+### **Prerequisites**
+- Node.js (v18 or higher recommended)
+- MongoDB Atlas account (or local MongoDB instance)
+- Google Gemini AI API key
 
+### **Step 1: Clone the Repository**
 ```bash
-Here I used npm.
-
-First and fore most open the backend terminal and run node server.js
-
-Then open frontend terminal and run npm run dev to see the results
-
+git clone https://github.com/MohamedShazni/FeedPulse.git
+cd FeedPulse
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **Step 2: Backend Configuration**
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Create a `.env` file in the `backend` folder and add the following:
+   ```env
+   NODE_ENV=development
+   PORT=5000
+   MONGO_URI=your_mongodb_connection_string
+   JWT_SECRET=your_jwt_secret_key
+   GEMINI_API_KEY=your_gemini_api_key
+   ADMIN_EMAIL=your_admin_email
+   ADMIN_PASSWORD=your_admin_password
+   ```
+4. Start the backend server:
+   ```bash
+   node server.js
+   ```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### **Step 3: Frontend Configuration**
+1. Open a new terminal and navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Create a `.env.local` file in the `frontend` folder and add the following:
+   ```env
+   NEXT_PUBLIC_API_URL=http://localhost:5000/api
+   ```
+4. Start the frontend development server:
+   ```bash
+   npm run dev
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+FeedPulse should now be running at [http://localhost:3000](http://localhost:3000).
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
 ## About FeedPulse
 
@@ -42,18 +73,18 @@ instant clarity on what to build next.
 - 📱 **Modern UI**: Clean, responsive, and high-performance interface built with Next.js and Tailwind CSS.
 - ⚡ **Real-time Updates**: Instant feedback processing and analysis.
 
-## Tech Stacks
+## 🛠️ Tech Stacks
 
 | **Backend Technology** | **Frontend Technology**           |
 |------------------------|-----------------------------------|
 | **Node.js**            | **TypeScript**                    |
 | **JavaScript**         | **Next.js**                       |
-| **MongoDB**            | **Tailwind CSS**                  |
+| **MongoDB Atlas**      | **Tailwind CSS**                  |
 | **bcypt**              | **Redux**                         |
-| **JWT**                |                                   |
+| **JWT**                | **Sonner**                        |
 
 
-## UI Screenshots
+## 📸 UI Screenshots
 
 - **Dashboard Page**
 <img width="1919" height="943" alt="Screenshot 2026-03-31 165125" src="https://github.com/user-attachments/assets/f42d33f6-b4b5-4b6f-b310-6dd35c8fc017" />
