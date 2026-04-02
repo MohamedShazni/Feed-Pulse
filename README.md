@@ -5,8 +5,11 @@
 First, run the development server:
 
 ```bash
-Here I used npm so need to run the server
-npm run dev
+Here I used npm.
+
+First and fore most open the backend terminal and run node server.js
+
+Then open frontend terminal and run npm run dev to see the results
 
 ```
 
