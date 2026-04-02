@@ -34,6 +34,14 @@ FeedPulse is a lightweight internal tool that lets teams collect product feedbac
 then uses Google Gemini AI to automatically categorise, prioritise, and summarise them — giving product teams
 instant clarity on what to build next.
 
+## ✨ Features
+
+- 📊 **Centralized Feedback Dashboard**: View and manage all user feedback in one place.
+- 🤖 **AI-Powered Analysis**: Automatically summarize feedback and extract key themes using Google Gemini AI.
+- 🔐 **Secure Authentication**: JWT-based admin access and secure feedback submission.
+- 📱 **Modern UI**: Clean, responsive, and high-performance interface built with Next.js and Tailwind CSS.
+- ⚡ **Real-time Updates**: Instant feedback processing and analysis.
+
 ## Tech Stacks
 
 | **Backend Technology** | **Frontend Technology**           |
