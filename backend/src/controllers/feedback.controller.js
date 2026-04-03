@@ -18,7 +18,7 @@ const createFeedback = async (req, res) => {
     }
 
     // Sanitize input (basic escaping of common XSS cases could be done here, but mongoose handles SQLi. Let's rely on Mongoose schema for now or add explicit sanitization if needed)
-    
+
     // Create feedback document
     const feedback = await Feedback.create({
       title,
@@ -65,8 +65,8 @@ const createFeedback = async (req, res) => {
 // @access  Private
 const getFeedbacks = async (req, res) => {
   try {
-    const { 
-      page = 1, 
+    const {
+      page = 1,
       limit = 10,
       category,
       status,
@@ -109,11 +109,12 @@ const getFeedbacks = async (req, res) => {
     // Get Extra Stats for dashboard
     const totalAll = await Feedback.countDocuments();
     const openItems = await Feedback.countDocuments({ status: { $ne: 'Resolved' } });
-    
+
     // Aggregation for average priority and top tag
     const stats = await Feedback.aggregate([
       { $match: { ai_processed: true } },
-      { $group: {
+      {
+        $group: {
           _id: null,
           avgPriority: { $avg: '$ai_priority' },
           allTags: { $push: '$ai_tags' }
@@ -126,10 +127,10 @@ const getFeedbacks = async (req, res) => {
 
     if (stats.length > 0) {
       avgPriority = stats[0].avgPriority.toFixed(1);
-      
+
       const tagCounts = {};
       stats[0].allTags.flat().forEach(tag => {
-        if(tag) tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+        if (tag) tagCounts[tag] = (tagCounts[tag] || 0) + 1;
       });
 
       if (Object.keys(tagCounts).length > 0) {
@@ -183,9 +184,9 @@ const getFeedback = async (req, res) => {
 const updateFeedbackStatus = async (req, res) => {
   try {
     const { status } = req.body;
-    
+
     if (!['New', 'In Review', 'Resolved'].includes(status)) {
-         return res.status(400).json({ success: false, error: 'Invalid status' });
+      return res.status(400).json({ success: false, error: 'Invalid status' });
     }
 
     let feedback = await Feedback.findById(req.params.id);
@@ -241,7 +242,8 @@ const getTrendSummary = async (req, res) => {
   try {
     // Get latest 30 feedbacks for context
     const recentFeedbacks = await Feedback.find().sort({ createdAt: -1 }).limit(30);
-    
+
+    // generateTrendSummary always returns a string (never throws)
     const summary = await generateTrendSummary(recentFeedbacks);
 
     res.status(200).json({
@@ -249,8 +251,12 @@ const getTrendSummary = async (req, res) => {
       data: { summary }
     });
   } catch (error) {
+    // Only DB errors reach here — still return 200 with fallback so dashboard never breaks
     console.error('Trend Summary Error:', error);
-    res.status(500).json({ success: false, error: 'Failed to generate trend summary' });
+    res.status(200).json({
+      success: true,
+      data: { summary: 'AI trend summary is temporarily unavailable. Please try again shortly.' }
+    });
   }
 };
 
@@ -266,7 +272,7 @@ const reanalyzeFeedback = async (req, res) => {
     }
 
     const aiAnalysis = await analyzeFeedback(feedback.title, feedback.description);
-    
+
     if (aiAnalysis) {
       feedback.ai_category = aiAnalysis.category;
       feedback.ai_sentiment = aiAnalysis.sentiment;
@@ -275,7 +281,7 @@ const reanalyzeFeedback = async (req, res) => {
       feedback.ai_tags = aiAnalysis.tags;
       feedback.ai_processed = true;
       await feedback.save();
-      
+
       res.status(200).json({
         success: true,
         data: feedback,
